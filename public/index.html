@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Hamburg School of TDD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/united/bootstrap.min.css">
+  <style>
+    .main {
+      padding: 0 20px 100px 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar navbar-expand-lg fixed-bottom navbar-dark bg-primary">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">Hamburg School of TDD</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#principles">Principles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#demo">Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#rationale">Rationale</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faq">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#sponsor">Sponsor</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="main container">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 id="principles">Principles</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <ol>
+          <li id="start-with-api">Start with a simple test at the API-level of your unit under test.</li>
+          <li id="no-mocks-but-stubs">Without using mocks, work from the outside to the inside of your unit under test.
+            Reduce the scope of a unit under test instead by using stubs that pretend to have solved one or more
+            subtasks of the unit under test.</li>
+          <li id="grow-steady">Grow tests and implementation slow and steady by writing the obvious implementation, fake
+            it 'till you make it and triangulate.</li>
+          <li id="append-only-test-suit">During development, treat your suit of tests as append only. Do not delete or
+            comment out a test that is formally correct, but conflicts with your current development state. Instead,
+            revert to a state where you can make continuous progress again.</li>
+          <li id="replace-stubs-recursively">If there are stubs in the unit under test, replace the stubs with their
+            real implementation by making them the new unit under test and go to <a href="#start-with-api">step 1.</a>
+          </li>
+          <li id="add-validation-test">Always add a validation test after each unit under test has been finished to
+            avoid overfitting to the training set that you used to develop the unit under test.</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 id="demo">Demo</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <script id="asciicast-qFHETzoUsfajG79mlsY8fM32M" src="https://asciinema.org/a/qFHETzoUsfajG79mlsY8fM32M.js"
+          async data-speed="2.0"></script>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 id="rationale">Rationale</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <p><small>Coming soon.</small></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 id="faq">FAQ</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <p><small>Coming soon.</small></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 id="sponsor">Sponsor</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <a href="https://www.it-agile.de" title="Die Experten für agile Methoden"><img
+            src="https://www.it-agile.de/typo3conf/ext/tmpl_base/Resources/Public/Images/it-agile-Logo.svg"
+            alt="it-agile Logo"></a>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <a class="float-lg-right" href="#top">Back to top</a></li>
+    </footer>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

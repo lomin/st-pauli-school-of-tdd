@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>St. Pauli School of TDD</title>
+  <title>St. Pauli school of TDD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/slate/bootstrap.min.css">
@@ -11,9 +11,11 @@
     .main {
       padding: 0 20px 100px 20px;
     }
+
     body {
       color: #dee2e6;
     }
+
     a {
       color: #e95420;
     }
@@ -23,7 +25,7 @@
 <body>
   <div class="navbar navbar-expand-lg fixed-bottom navbar-dark bg-primary">
     <div class="container">
-      <a href="index.html" class="navbar-brand">St. Pauli School of TDD</a>
+      <a href="index.html" class="navbar-brand">St. Pauli school of TDD</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -37,16 +39,12 @@
             <a class="nav-link" href="#demo">Demo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#rationale">Rationale</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="#faq">FAQ</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#sponsor">Sponsor</a>
           </li>
         </ul>
-
       </div>
     </div>
   </div>
@@ -61,20 +59,26 @@
     <div class="row">
       <div class="col-lg-12">
         <ol>
-          <li id="start-with-api">Start with a simple test at the API-level of your unit under test.</li>
-          <li id="no-mocks-but-stubs">Without using mocks, work from the outside to the inside of your unit under test.
-            Reduce the scope of a unit under test instead by using stubs that pretend to have solved one or more
-            subtasks of the unit under test.</li>
+          <li id="start-with-api">Start with a simple test at the API-level of your Unit under Test (UuT).</li>
+          <li id="no-mocks-but-stubs">Without using mocks, work from the outside to the inside of your UuT.
+            Reduce the scope of a UuT by using stubs that pretend to have solved one or more
+            subtasks of the UuT.</li>
           <li id="grow-steady">Grow tests and implementation slow and steady by writing the obvious implementation, fake
             it 'till you make it and triangulate.</li>
-          <li id="append-only-test-suit">During development, treat your suit of tests as append only. Do not delete or
+          <li id="prefer-pure-units">Prefer pure units.</li>
+          <li id="test-non-determinism-and-side-effects-differently">Distinguish impure functions into non-determinism
+            and side-effects. Test
+            non-deterministic functions with stubs or fakes and model side-effects as data structures whose correctness
+            can be tested easily. Write a very thin layer which interprets the side-effect data structures and emits the
+            side effect. Test this layer with integration tests and acceptance tests.</li>
+          <li id="append-only-test-suite">During development, treat your suit of tests as append only. Do not delete or
             comment out a test that is formally correct, but conflicts with your current development state. Instead,
             revert to a state where you can make continuous progress again.</li>
-          <li id="replace-stubs-recursively">If there are stubs in the unit under test, replace the stubs with their
-            real implementation by making them the new unit under test and go to <a href="#start-with-api">step 1.</a>
+          <li id="replace-stubs-recursively">If there are stubs in the UuT, replace the stubs with their
+            real implementation by making them the new UuT and go to <a href="#start-with-api">step 1.</a>
           </li>
-          <li id="add-validation-test">Always add a validation test after each unit under test has been finished to
-            avoid overfitting to the training set that you used to develop the unit under test.</a></li>
+          <li id="add-validation-test">Always add a validation test after each UuT has been finished to
+            avoid overfitting to the training set that you used to develop the UuT.</a></li>
         </ol>
       </div>
     </div>
@@ -93,23 +97,81 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <h1 id="rationale">Rationale</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <p><small>Coming soon.</small></p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-12">
         <h1 id="faq">FAQ</h1>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <p><small>Coming soon.</small></p>
+        <h3>Why another school? Don't we have enough already?</h3>
+        <p scope="row">The St. Pauli school of TDD started as a tongue in cheek response of the new founded
+          <a href="https://de.slideshare.net/davidvoelkel/fake-it-outsidein-tdd-xp2017">Munich school of TDD</a>
+          by fellow software crafter <a href="https://twitter.com/davidvoelkel">David
+            Völkel</a>, but developed in a useful TDD style of its own.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>How does the St. Pauli school of TDD differ from other schools?</h3>
+        <p scope="row">All schools formulate an opinion on three common aspects:</p>
+        <table class="table table-hover">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col">School</th>
+              <th scope="col">St. Pauli</th>
+              <th scope="col">Detroit/Chicago</th>
+              <th scope="col">London</th>
+              <th scope="col">Munich</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Direction</th>
+              <td>Outside-In</td>
+              <td>Inside-Out</td>
+              <td>Outside-In</td>
+              <td>Outside-In</td>
+            </tr>
+            <tr>
+              <th scope="row">First Test Case</th>
+              <td>Simple</td>
+              <td>Simple</td>
+              <td>Simple</td>
+              <td>Complex</td>
+            </tr>
+            <tr>
+              <th scope="row">Use of Mocks</th>
+              <td>avoid</td>
+              <td>avoid</td>
+              <td>embrace</td>
+              <td>avoid</td>
+            </tr>
+          </tbody>
+        </table>
+        <p scope="row">As seen above, the St. Pauli school of TDD differs in 1 out of 3 aspects from every other school.
+        </p>
+        <p scope="row">Besides these aspects, the St. Pauli school has four requirements, which are not integral part of
+          the other
+          schools:</p>
+        <ul>
+          <li><a href="#append-only-test-suite">During development, treat your suit of tests as append only</a></li>
+          <li><a href="#add-validation-test">Always add a validation test after each UuT has been finished</a></li>
+          <li><a href="#prefer-pure-units">Prefer pure units</a></li>
+          <li><a href="#test-non-determinism-and-side-effects-differently">Test non-determinism and side-effects
+              differently</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Isn't TDD a waste of time, since there are so much better development techniques out threre?</h3>
+        <p scope="row">Even if <a
+            href="https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/HammockDrivenDev.md">Hammock-driven
+            Development</a>, <a href="https://jqwik.net/property-based-testing.html">Property-Based Testing</a>,
+          <a href="https://github.com/matthiasn/talk-transcripts/blob/master/Halloway_Stuart/REPLDrivenDevelopment.md">REPL-Driven
+            development</a> and <a href="https://blog.ploeh.dk/2015/08/10/type-driven-development/">Type-driven
+            Development</a>
+          are great techniques, this doesn't mean that TDD must be useless. And the
+          best thing is, that TDD is compatible and combinable with all aforementioned techniques!</p>
       </div>
     </div>
 

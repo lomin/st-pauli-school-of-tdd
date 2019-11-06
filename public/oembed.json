@@ -1,0 +1,15 @@
+{
+  "width": 2060,
+  "version": 1,
+  "type": "rich",
+  "title": "St. Pauli School of TDD",
+  "thumbnail_width": 2060,
+  "thumbnail_url": "https://tddstpau.li/thumbnail.png",
+  "thumbnail_height": 1208,
+  "provider_url": "https://tddstpau.li/",
+  "provider_name": "tddstpauli",
+  "html": "<a href=\"https://tddstpau.li\" target=\"_blank\"><img alt=\"St. Pauli School of TDD\" src=\"https://tddstpau.li/thumbnail.png\" width=\"2060\"></a>",
+  "height": 1208,
+  "author_url": "https://github.com/lomin",
+  "author_name": "lomin"
+}

@@ -77,10 +77,10 @@
     <div class="row">
       <div class="col-lg-12">
         <ol>
-          <li id="start-with-api">Start with a simple test at the API-level of your Unit under Test (UuT).</li>
-          <li id="no-mocks-but-stubs">Without using mocks, work from the outside to the inside of your UuT.
-            Reduce the scope of a UuT by using stubs that pretend to have solved one or more
-            subtasks of the UuT.</li>
+          <li id="start-with-api">Start with a simple test at the API-level of your Subject under Test (SUT).</li>
+          <li id="no-mocks-but-stubs">Without using mocks, work from the outside to the inside of your SUT.
+            Reduce the scope of a SUT by using stubs that pretend to have solved one or more
+            subtasks of the SUT.</li>
           <li id="grow-steady"><a href="https://www.jamesshore.com/Blog/Red-Green-Refactor.html">Grow tests and
               implementation slow and steady</a> by <a
               href="http://blog.baudson.de/blog/test-driven-development-green-bar-patterns">writing the obvious
@@ -93,11 +93,11 @@
           <li id="append-only-test-suite">During development, treat your suit of tests as append-only. Do not delete or
             comment out a test that is formally correct, but conflicts with your current development state. Instead,
             revert to a state where you can make continuous progress again.</li>
-          <li id="replace-stubs-recursively">If there are stubs in the UuT, replace the stubs with their
-            real implementation by making them the new UuT and go to <a href="#start-with-api">step 1.</a>
+          <li id="replace-stubs-recursively">If there are stubs in the SUT, replace the stubs with their
+            real implementation by making them the new SUT and go to <a href="#start-with-api">step 1.</a>
           </li>
-          <li id="add-validation-test">Always add a validation test after each UuT has been finished to
-            avoid overfitting to the training set that you used to develop the UuT.</a></li>
+          <li id="add-validation-test">Always add a validation test after each SUT has been finished to
+            avoid overfitting to the training set that you used to develop the SUT.</a></li>
         </ol>
       </div>
     </div>
@@ -176,7 +176,7 @@
           the other schools:</p>
         <ul>
           <li><a href="#append-only-test-suite">During development, treat your suit of tests as append-only</a></li>
-          <li><a href="#add-validation-test">Always add a validation test after each UuT has been finished</a></li>
+          <li><a href="#add-validation-test">Always add a validation test after each SUT has been finished</a></li>
           <li><a href="#test-non-determinism-and-side-effects-differently">Test non-determinism and side-effects
               differently</a></li>
         </ul>

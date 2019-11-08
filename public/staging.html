@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>St. Pauli school of TDD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/slate/bootstrap.min.css">
+  <link rel="stylesheet" href="css/asciinema-player.css">
+  <link rel="alternate" type="application/json+oembed" href="https://tddstpau.li/oembed.json">
+  <style>
+    .main {
+      padding: 0 20px 100px 20px;
+    }
+
+    body {
+      color: #dee2e6;
+    }
+
+    a {
+      color: #e95420;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar navbar-expand-lg fixed-bottom navbar-dark bg-primary">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">St. Pauli school of TDD</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#principles">Principles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#demo">Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faq">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#roadmap">Roadmap</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#sponsor">Sponsor</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="main container">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>St. Pauli School of Test-driven Development</h1>
+        <hr class="my-4" style="border-color:white">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 id="principles">Principles</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <ol>
+          <li id="start-with-api">Start with a simple test at the API-level of your Unit under Test (UuT).</li>
+          <li id="no-mocks-but-stubs">Without using mocks, work from the outside to the inside of your UuT.
+            Reduce the scope of a UuT by using stubs that pretend to have solved one or more
+            subtasks of the UuT.</li>
+          <li id="grow-steady"><a href="https://www.jamesshore.com/Blog/Red-Green-Refactor.html">Grow tests and
+              implementation slow and steady</a> by <a
+              href="http://blog.baudson.de/blog/test-driven-development-green-bar-patterns">writing the obvious
+              implementation, fake it 'till you make it and triangulate.</a></li>
+          <li id="test-non-determinism-and-side-effects-differently">Distinguish impure functions into non-determinism
+            and side-effects. Test non-deterministic functions with stubs or fakes and model side-effects as data
+            structures whose correctness can be tested easily. Write a very thin layer which interprets the side-effect
+            data structures and emits the side effects. Test this layer with integration tests and acceptance tests.
+          </li>
+          <li id="append-only-test-suite">During development, treat your suit of tests as append-only. Do not delete or
+            comment out a test that is formally correct, but conflicts with your current development state. Instead,
+            revert to a state where you can make continuous progress again.</li>
+          <li id="replace-stubs-recursively">If there are stubs in the UuT, replace the stubs with their
+            real implementation by making them the new UuT and go to <a href="#start-with-api">step 1.</a>
+          </li>
+          <li id="add-validation-test">Always add a validation test after each UuT has been finished to
+            avoid overfitting to the training set that you used to develop the UuT.</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 id="demo">Demo <a style="font-size:small"
+            href="https://gist.github.com/lomin/e64af7828badac1562942d888068cabc">source</a></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <asciinema-player src="https://www.tddstpau.li/casts/diamond-kata.cast" data-speed="2.0" cols="141" rows="37"></asciinema-player>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 id="faq">FAQ</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h4>Why another school? Don't we have enough already?</h4>
+        <p scope="row">The St. Pauli school of TDD started as a tongue-in-cheek response to the new founded
+          <a href="https://de.slideshare.net/davidvoelkel/fake-it-outsidein-tdd-xp2017">Munich school of TDD</a>
+          by fellow software crafter <a href="https://twitter.com/davidvoelkel">David
+            Völkel</a>, but developed in a useful TDD style of its own.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h4>How does the St. Pauli school of TDD differ from other schools?</h4>
+        <p scope="row">All schools formulate an opinion on three common aspects:</p>
+        <table class="table table-hover">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col">School</th>
+              <th scope="col">St. Pauli</th>
+              <th scope="col">Detroit/Chicago</th>
+              <th scope="col">London</th>
+              <th scope="col">Munich</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Direction</th>
+              <td>Outside-In</td>
+              <td>Inside-Out</td>
+              <td>Outside-In</td>
+              <td>Outside-In</td>
+            </tr>
+            <tr>
+              <th scope="row">First Test Case</th>
+              <td>Simple</td>
+              <td>Simple</td>
+              <td>Simple</td>
+              <td>Complex</td>
+            </tr>
+            <tr>
+              <th scope="row">Use of Mocks</th>
+              <td>avoid</td>
+              <td>avoid</td>
+              <td>embrace</td>
+              <td>avoid</td>
+            </tr>
+          </tbody>
+        </table>
+        <p scope="row">As shown above, the St. Pauli school of TDD differs in 1 out of 3 aspects from every other
+          school.
+        </p>
+        <p scope="row">Besides these aspects, the St. Pauli school has three requirements, which are not integral part
+          of
+          the other schools:</p>
+        <ul>
+          <li><a href="#append-only-test-suite">During development, treat your suit of tests as append-only</a></li>
+          <li><a href="#add-validation-test">Always add a validation test after each UuT has been finished</a></li>
+          <li><a href="#test-non-determinism-and-side-effects-differently">Test non-determinism and side-effects
+              differently</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h4>Isn't TDD a waste of time, since there are so much better development techniques out there?</h4>
+        <p scope="row">Even though <a
+            href="https://web.archive.org/web/20170621004437/http://alistair.cockburn.us/Thinking+before+programming">Thinking
+            before programming</a>,
+          <a href="https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/HammockDrivenDev.md">Hammock-driven
+            Development</a>, <a href="https://jqwik.net/property-based-testing.html">Property-Based Testing</a>,
+          <a href="https://github.com/matthiasn/talk-transcripts/blob/master/Halloway_Stuart/REPLDrivenDevelopment.md">REPL-Driven
+            development</a> and <a href="https://blog.ploeh.dk/2015/08/10/type-driven-development/">Type-driven
+            Development</a> are useful techniques, this does neither imply that TDD is useless, nor that the
+          aforementioned techniques and Test-driven Development are mutually exclusive.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 id="roadmap">Roadmap</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Right now, the St. Pauli school of TDD is still subject to change. After the initial feedback has been
+          incorporated, a set of principles will be released and marked as append-only to enable the evolution of the
+          St. Pauli school without generating confusion by changing or removing principles.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 id="sponsor">Sponsor</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <a href="https://www.it-agile.de" title="Die Experten für agile Methoden"><img
+            src="https://www.it-agile.de/typo3conf/ext/tmpl_base/Resources/Public/Images/it-agile-Logo.svg"
+            alt="it-agile Logo"></a>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <a class="float-lg-right" href="#top">Back to top</a></li>
+    </footer>
+
+  </div>
+  <script src="js/asciinema-player.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

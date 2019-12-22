@@ -22,16 +22,19 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#principles">Principles</a>
+            <a class="nav-link" href="#rationale">Rationale</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#approach">Approach</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#comparison">Comparison</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#demo">Demo</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#faq">FAQ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#roadmap">Roadmap</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#sponsor">Sponsor</a>
@@ -71,7 +74,7 @@
 
       </div>
       <div class="col-lg-6">
-        <h2 id="principles">Approach</h2>
+        <h2 id="approach">Approach</h2>
         <div id="accordion">
           <div class="card">
             <div class="card-header bg-primary" id="start-with-api">
@@ -128,23 +131,27 @@
           <div class="card">
             <div class="card-header bg-primary" id="replace-stubs-recursively">
               <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#replace-stubs-recursively-description"
-                  aria-expanded="false" aria-controls="replace-stubs-recursively-description">
+                <button class="btn btn-link collapsed" data-toggle="collapse"
+                  data-target="#replace-stubs-recursively-description" aria-expanded="false"
+                  aria-controls="replace-stubs-recursively-description">
                   Replace stubs recursively
                 </button>
               </h5>
             </div>
-            <div id="replace-stubs-recursively-description" class="collapse" aria-labelledby="replace-stubs-recursively">
+            <div id="replace-stubs-recursively-description" class="collapse"
+              aria-labelledby="replace-stubs-recursively">
               <div class="card-body">If there are stubs in the SUT, replace the stubs with their
-                real implementation by making them the new SUT and go to <a href="#start-with-api">Start on the API-level</a>
+                real implementation by making them the new SUT and go to <a href="#start-with-api">Start on the
+                  API-level</a>
               </div>
             </div>
           </div>
           <div class="card">
             <div class="card-header bg-primary" id="add-validation-test">
               <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#add-validation-test-description"
-                  aria-expanded="false" aria-controls="add-validation-test-description">
+                <button class="btn btn-link collapsed" data-toggle="collapse"
+                  data-target="#add-validation-test-description" aria-expanded="false"
+                  aria-controls="add-validation-test-description">
                   Finish off with a validation test
                 </button>
               </h5>
@@ -159,8 +166,9 @@
           <div class="card">
             <div class="card-header bg-primary" id="append-only-test-suite">
               <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#append-only-test-suite-description"
-                  aria-expanded="false" aria-controls="append-only-test-suite-description">
+                <button class="btn btn-link collapsed" data-toggle="collapse"
+                  data-target="#append-only-test-suite-description" aria-expanded="false"
+                  aria-controls="append-only-test-suite-description">
                   Treat test suite as append-only
                 </button>
               </h5>
@@ -168,8 +176,8 @@
             <div id="append-only-test-suite-description" class="collapse" aria-labelledby="append-only-test-suite">
               <div class="card-body">
                 During development, treat your suit of tests as append-only. Do not delete or
-            comment out a test that is formally correct, but conflicts with your current development state. If you
-            painted yourself into a corner, instead revert to a state where you can make continuous progress again.
+                comment out a test that is formally correct, but conflicts with your current development state. If you
+                painted yourself into a corner, instead revert to a state where you can make continuous progress again.
               </div>
             </div>
           </div>
@@ -178,7 +186,7 @@
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <h4>Comparison to other schools of TDD</h4>
+        <h4 id="comparison">Comparison to other schools of TDD</h4>
         <p scope="row">All schools formulate an opinion on three common aspects:</p>
         <table class="table table-hover">
           <thead>
@@ -256,9 +264,6 @@
       </div>
     </div>
     <div class="row">
-
-    </div>
-    <div class="row">
       <div class="col-lg-12">
         <h4>Isn't TDD a waste of time, since there are so much better development techniques out there?</h4>
         <p scope="row">Even though <a
@@ -272,19 +277,6 @@
           aforementioned techniques and Test-driven Development are mutually exclusive.</p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 id="roadmap">Roadmap</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <p>Right now, the St. Pauli school of TDD is still subject to change. After the initial feedback has been
-          incorporated, a set of principles will be released and marked as append-only to enable the evolution of the
-          St. Pauli school without generating confusion by changing or removing principles.</p>
-      </div>
-    </div>
-
     <div class="row">
       <div class="col-lg-12">
         <h2 id="sponsor">Sponsor</h2>

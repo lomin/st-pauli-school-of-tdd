@@ -1,0 +1,15 @@
+.main {
+  padding: 0 20px 100px 20px;
+}
+
+$body-color : #EDE6E3;
+
+$link-color : #e95420;
+
+$hr-border-color: #e95420;
+
+$jumbotron-padding: 1rem;
+
+@import "_variables";
+@import "../bootstrap/scss/bootstrap";
+@import "_bootswatch";

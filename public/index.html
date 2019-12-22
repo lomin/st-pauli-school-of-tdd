@@ -6,22 +6,9 @@
   <title>St. Pauli school of TDD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/slate/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
   <link rel="stylesheet" href="css/asciinema-player.css">
   <link rel="alternate" type="application/json+oembed" href="https://tddstpau.li/oembed.json">
-  <style>
-    .main {
-      padding: 0 20px 100px 20px;
-    }
-
-    body {
-      color: #dee2e6;
-    }
-
-    a {
-      color: #e95420;
-    }
-  </style>
 </head>
 
 <body>
@@ -61,76 +48,137 @@
   </div>
 
   <div class="main container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="jumbotron">
+          <h1 class="display-3">St. Pauli School of TDD</h1>
+          <hr class="my-4">
+          <p class="lead">A systematic approach to Test-driven Development that leads to continuous progress</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <h2 id="rationale">Rationale</h2>
+        <p scope="col">Test-driven development is designed to provide feedback at intervals of seconds or minutes on
+          whether current software development is making progress in the right direction. If the development takes too
+          long until all tests can be run again without errors, this feedback is missing and a slower development speed
+          is the result. We often notice that many developers are still able to handle the first two or three TDD cycles
+          smoothly, but the subsequent cycles are so slow that one can hardly speak of test-driven development. We have
+          therefore developed a systematic approach that leads to continuous progress in short TDD cycles. Following the
+          two well-known TDD approaches - "Chicago School" and "London School" - we have named this approach St. Pauli
+          School of TDD.</p>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <h1>St. Pauli School of Test-driven Development</h1>
-        <hr class="my-4" style="border-color:white">
       </div>
-    </div>
+      <div class="col-lg-6">
+        <h2 id="principles">Approach</h2>
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header bg-primary" id="start-with-api">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#start-with-api-description"
+                  aria-expanded="false" aria-controls="start-with-api-description">
+                  Start on the API-level
+                </button>
+              </h5>
+            </div>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 id="principles">Principles</h2>
+            <div id="start-with-api-description" class="collapse" aria-labelledby="start-with-api">
+              <div class="card-body">
+                Start with a simple test at the API-level of your Subject under Test (SUT).
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header bg-primary" id="grow-steady">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#grow-steady-description"
+                  aria-expanded="false" aria-controls="grow-steady-description">
+                  Grow slow and steady
+                </button>
+              </h5>
+            </div>
+            <div id="grow-steady-description" class="collapse" aria-labelledby="grow-steady">
+              <div class="card-body">
+                Enter the <a href="https://www.jamesshore.com/Blog/Red-Green-Refactor.html">Red-Green-Refactor-Cycle</a>
+                to grow tests and implementation slow and steady by
+                <a href="http://blog.baudson.de/blog/test-driven-development-green-bar-patterns">writing the obvious
+                  implementation, fake it 'till you make it and triangulate.</a>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header bg-primary" id="no-mocks-but-stubs">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse"
+                  data-target="#no-mocks-but-stubs-description" aria-expanded="false"
+                  aria-controls="no-mocks-but-stubs-description">
+                  Delegate subproblems to stubs
+                </button>
+              </h5>
+            </div>
+            <div id="no-mocks-but-stubs-description" class="collapse" aria-labelledby="no-mocks-but-stubs">
+              <div class="card-body">
+                Without using mocks, work from the outside to the inside of your SUT.
+                Reduce the scope of a SUT by using stubs that pretend to have solved one or more
+                subtasks of the SUT.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header bg-primary" id="replace-stubs-recursively">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#replace-stubs-recursively-description"
+                  aria-expanded="false" aria-controls="replace-stubs-recursively-description">
+                  Replace stubs recursively
+                </button>
+              </h5>
+            </div>
+            <div id="replace-stubs-recursively-description" class="collapse" aria-labelledby="replace-stubs-recursively">
+              <div class="card-body">If there are stubs in the SUT, replace the stubs with their
+                real implementation by making them the new SUT and go to <a href="#start-with-api">Start on the API-level</a>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header bg-primary" id="add-validation-test">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#add-validation-test-description"
+                  aria-expanded="false" aria-controls="add-validation-test-description">
+                  Finish off with a validation test
+                </button>
+              </h5>
+            </div>
+            <div id="add-validation-test-description" class="collapse" aria-labelledby="add-validation-test">
+              <div class="card-body">
+                Always add a validation test after each SUT has been finished to
+                avoid overfitting to the training set that you used to develop the SUT.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header bg-primary" id="append-only-test-suite">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#append-only-test-suite-description"
+                  aria-expanded="false" aria-controls="append-only-test-suite-description">
+                  Treat test suite as append-only
+                </button>
+              </h5>
+            </div>
+            <div id="append-only-test-suite-description" class="collapse" aria-labelledby="append-only-test-suite">
+              <div class="card-body">
+                During development, treat your suit of tests as append-only. Do not delete or
+            comment out a test that is formally correct, but conflicts with your current development state. If you
+            painted yourself into a corner, instead revert to a state where you can make continuous progress again.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <ol>
-          <li id="start-with-api">Start with a simple test at the API-level of your Subject under Test (SUT).</li>
-          <li id="no-mocks-but-stubs">Without using mocks, work from the outside to the inside of your SUT.
-            Reduce the scope of a SUT by using stubs that pretend to have solved one or more
-            subtasks of the SUT.</li>
-          <li id="grow-steady"><a href="https://www.jamesshore.com/Blog/Red-Green-Refactor.html">Grow tests and
-              implementation slow and steady</a> by <a
-              href="http://blog.baudson.de/blog/test-driven-development-green-bar-patterns">writing the obvious
-              implementation, fake it 'till you make it and triangulate.</a></li>
-          <li id="test-non-determinism-and-side-effects-differently">Distinguish impure functions into non-determinism
-            and side-effects. Test non-deterministic functions with stubs or fakes and model side-effects as data
-            structures whose correctness can be tested easily. Write a very thin layer which interprets the side-effect
-            data structures and emits the side effects. Test this layer with integration tests and acceptance tests.
-          </li>
-          <li id="append-only-test-suite">During development, treat your suit of tests as append-only. Do not delete or
-            comment out a test that is formally correct, but conflicts with your current development state. Instead,
-            revert to a state where you can make continuous progress again.</li>
-          <li id="replace-stubs-recursively">If there are stubs in the SUT, replace the stubs with their
-            real implementation by making them the new SUT and go to <a href="#start-with-api">step 1.</a>
-          </li>
-          <li id="add-validation-test">Always add a validation test after each SUT has been finished to
-            avoid overfitting to the training set that you used to develop the SUT.</a></li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 id="demo">Demo <a style="font-size:small"
-            href="https://gist.github.com/lomin/e64af7828badac1562942d888068cabc">source</a></h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <asciinema-player src="/casts/diamond-kata.cast" speed="2.0" cols="141" rows="37" theme="solarized-light"
-          poster="data:text/plain,Diamond Kata solved with St. Pauli-style TDD"></asciinema-player>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 id="faq">FAQ</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <h4>Why another school? Don't we have enough already?</h4>
-        <p scope="row">The St. Pauli school of TDD started as a tongue-in-cheek response to the new founded
-          <a href="https://de.slideshare.net/davidvoelkel/fake-it-outsidein-tdd-xp2017">Munich school of TDD</a>
-          by fellow software crafter <a href="https://twitter.com/davidvoelkel">David
-            Völkel</a>, but developed in a useful TDD style of its own.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <h4>How does the St. Pauli school of TDD differ from other schools?</h4>
+        <h4>Comparison to other schools of TDD</h4>
         <p scope="row">All schools formulate an opinion on three common aspects:</p>
         <table class="table table-hover">
           <thead>
@@ -138,7 +186,7 @@
               <th scope="col">School</th>
               <th scope="col">St. Pauli</th>
               <th scope="col"><a
-                  href="https://github.com/testdouble/contributing-tests/wiki/Detroit-school-TDD">Detroit/Chicago</th>
+                  href="https://github.com/testdouble/contributing-tests/wiki/Detroit-school-TDD">Detroit</a></th>
               <th scope="col"><a
                   href="https://github.com/testdouble/contributing-tests/wiki/London-school-TDD">London</a></th>
               <th scope="col"><a href="https://de.slideshare.net/davidvoelkel/fake-it-outsidein-tdd-xp2017">Munich</a>
@@ -172,16 +220,43 @@
         <p scope="row">As shown above, the St. Pauli school of TDD differs in 1 out of 3 aspects from every other
           school.
         </p>
-        <p scope="row">Besides these aspects, the St. Pauli school has three requirements, which are not integral part
+        <p scope="row">Besides these aspects, the St. Pauli school has two requirements, which are not integral part
           of
           the other schools:</p>
         <ul>
-          <li><a href="#append-only-test-suite">During development, treat your suit of tests as append-only</a></li>
           <li><a href="#add-validation-test">Always add a validation test after each SUT has been finished</a></li>
-          <li><a href="#test-non-determinism-and-side-effects-differently">Test non-determinism and side-effects
-              differently</a></li>
+          <li><a href="#append-only-test-suite">During development, treat your suit of tests as append-only</a></li>
         </ul>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 id="demo">Demo</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <asciinema-player src="/casts/diamond-kata.cast" speed="2.0" cols="141" rows="37" theme="solarized-light"
+          poster="data:text/plain,Diamond Kata solved with St. Pauli-style TDD"></asciinema-player>
+        <a class="small" href="https://gist.github.com/lomin/e64af7828badac1562942d888068cabc">source</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 id="faq">FAQ</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h4>Why another school? Don't we have enough already?</h4>
+        <p scope="row">The St. Pauli school of TDD started as a tongue-in-cheek response to the new founded
+          <a href="https://de.slideshare.net/davidvoelkel/fake-it-outsidein-tdd-xp2017">Munich school of TDD</a>
+          by fellow software crafter <a href="https://twitter.com/davidvoelkel">David
+            Völkel</a>, but developed in a useful TDD style of its own.</p>
+      </div>
+    </div>
+    <div class="row">
+
     </div>
     <div class="row">
       <div class="col-lg-12">
@@ -224,7 +299,7 @@
     </div>
 
     <footer id="footer">
-      <a class="float-lg-right" href="#top">Back to top</a></li>
+      <a class="float-lg-right" href="#top">Back to top</a>
     </footer>
 
   </div>

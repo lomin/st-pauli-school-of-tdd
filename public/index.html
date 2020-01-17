@@ -357,16 +357,10 @@
                   arguments of the function. There is only one argument of the diamond function and it is named $char.
                   The $ sign has no special meaning, we just use it to prefix the variable name since there is already a
                   char function provided by Clojure. Since the diamond function does not return anything, we are still
-                  in the red state, but now the test result is much more helpful:</td>
-              </tr>
-              <tr>
-                <td>
-                  <code</td> <td>expected: (= ["a"] (diamond \a)), actual: (not (= ["a"] nil))</code>
+                  in the red state, but now the test result is much more helpful:
+                  <code>expected: (= ["a"] (diamond \a)), actual: (not (= ["a"] nil))</code>
+                  That means, (diamond \a) should return ["a”], but it returns nil, and nil is not ["a"].  
                 </td>
-              </tr>
-              <tr>
-                <td>That </td>
-                <td>eans, (diamond \a) should return ["a”], but it returns nil, and nil is not ["a"]. </td>
               </tr>
               <tr>
                 <td>01:13</td>
@@ -393,27 +387,27 @@
                   changed but the visible result is the same.</td>
               </tr>
               <tr>
-                <td>3:15 </td>
-                <td>nto can also be called with two collections as arguments. In that case, into returns the first
+                <td>03:15</td>
+                <td>into can also be called with two collections as arguments. In that case, into returns the first
                   collection with all elements of the second collection included. We take the next tiny step and call
                   into with the same vector and an empty vector. Unsurprisingly, this does also not change the result,
                   but is a little bit closer to the real implementation.</td>
               </tr>
               <tr>
-                <td>3:23 </td>
-                <td>ere, we split the first vector in two parts and call into with them. We are still in the green
+                <td>03:23</td>
+                <td>Tere, we split the first vector in two parts and call into with them. We are still in the green
                   state, but now we can see a possibility to reduce the problem. The second vector can be derived from
                   the first vector if we remove the first vector’s last element and reverse it afterwards.</td>
               </tr>
               <tr>
-                <td>3:38 </td>
-                <td>oth vectors are still independent from each other, but we already remove the last element of the
+                <td>03:38</td>
+                <td>Both vectors are still independent from each other, but we already remove the last element of the
                   second vector without breaking any tests by adding a neutral element at the end. Except for the fact
                   that it gets removed, this element can be ignored (hence the name).</td>
               </tr>
               <tr>
-                <td>3:54 </td>
-                <td>t this point, to introduce the reversing of the second vector in a non-breaking way, we need to
+                <td>03:54</td>
+                <td>At this point, to introduce the reversing of the second vector in a non-breaking way, we need to
                   switch the first and the second element of the second vector before surrounding it with the reverse
                   function.</td>
               </tr>

@@ -3,6 +3,13 @@
   padding: 0 20px 100px 20px;
 }
 
+.scroll {
+  position: relative;
+  height: 200px;
+  margin-top: 0.5rem;
+  overflow: auto;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

@@ -324,8 +324,10 @@
         <div class="card scroll">
           <h4 id="comment-00_00">00:00</h4>
           <p>
-            We start with a new Clojure project. We choose Clojure, because it has minimal syntax and has a high
-            signal-vs-noise-ratio. It is also very readable once you are familiar with f(x) is written (f x).
+            We start with a new <a href="https://clojure.org/">Clojure</a> project. We choose Clojure, because it has
+            minimal syntax and has a high
+            signal-vs-noise-ratio. It is also very readable once you are familiar with <code>f(x)</code> is written
+            <code>(f x)</code>.
           </p>
           <h4 id="comment-00_36">00:36</h4>
           <p>
@@ -334,81 +336,101 @@
           </p>
           <h4 id="comment-00_40">00:40</h4>
           <p>
-            To get as quickly as possible into the green state, we assert that 0 is indeed 0. This is not very useful,
+            To get as quickly as possible into the green state, we assert that <code>0</code> is indeed <code>0</code>.
+            This is not very useful,
             but we are just warming up.
           </p>
           <h4 id="comment-00_59">00:59</h4>
           <p>
             The first step of the St. Pauli school of TDD is to start with a simple API test. So we change the test's
-            name and specify the API of the diamond function. We already made some design decisions there: The input of
+            name and specify the API of the <code>diamond</code> function. We already made some design decisions there:
+            The input of
             the function should be a single character, the output should be a vector containing a string for each line
-            and the function name should be “diamond”. Since a function with this name does not exist yet, The test
-            runner prints an error and I am back in the red state.
+            and the function name should be "diamond". Since a function with this name does not exist yet, The test
+            runner prints an error and we are back in the red state.
           </p>
           <h4 id="comment-01_10">01:10</h4>
           <p>
-            To make some progress towards the green state, we write a minimal implementation of the diamond function.
-            The macro (a special kind of function) defn creates a new function with the name specified by the first
-            argument to defn (here: diamond). The second argument to defn is a vector of all the arguments of the
-            function. There is only one argument of the diamond function and it is named $char. The $ sign has no
-            special meaning, we just use it to prefix the variable name since there is already a char function provided
-            by Clojure. Since the diamond function does not return anything, we are still in the red state, but now the
-            test result is much more helpful: <code>expected: (= ["a"] (diamond \a)), actual: (not (= ["a"] nil))</code>
-            That means, (diamond \a) should return ["a”], but it returns nil, and nil is not ["a"].
+            To make some progress towards the green state, we write a minimal implementation of the <code>diamond</code>
+            function.
+            The <a href="https://clojure.org/reference/macros">macro</a> (a special kind of function) <a
+              href="https://clojuredocs.org/clojure.core/defn"><code>defn</code></a> creates a new function with the
+            name specified by the first
+            argument to <code>defn</code> (here: <code>diamond</code>). The second argument to <code>defn</code> is a
+            vector of all the arguments of the
+            function. There is only one argument of the <code>diamond</code> function and it is named
+            <code>$char</code>. The <code>$</code> sign has no
+            special meaning, we just use it to prefix the variable name since there is already a <code>char</code>
+            function provided
+            by Clojure. Since the <code>diamond</code> function does not return anything, we are still in the red state,
+            but now the
+            test result is much more helpful:
+            <code>expected: (= ["a"] (diamond \a)), actual: (not (= ["a"] nil))</code><br>
+            That means, <code>(diamond \a)</code> should return <code>["a"]</code>, but it returns <code>nil</code>, and
+            <code>nil</code> is not <code>["a"]</code>.
           </p>
           <h4 id="comment-01_13">01:13</h4>
           <p>
-            The quickest way to get back in the green state is to return the expected value [“a”]. This is both part of
-            the “Fake-it”(http://wiki.c2.com/?FakeIt)- and the
-            “Triangulate”(http://wiki.c2.com/?TriangulateToDesign)-Pattern. If we refactor the constant value to the
-            real implementation, we would have used the “Fake-it”(http://wiki.c2.com/?FakeIt)-Pattern. But this would be
+            The quickest way to get back in the green state is to return the expected value <code>["a"]</code>. This is
+            both part of
+            the <a href="http://wiki.c2.com/?FakeIt">Fake-it</a>- and the
+            <a href="http://wiki.c2.com/?TriangulateToDesign">Triangulate</a>-Pattern. If we refactor the constant value
+            to the
+            real implementation, we would have used the Fake-it-pattern. But this would be
             a to big step at this point. That is why we continue with the
-            “Triangulate”(http://wiki.c2.com/?TriangulateToDesign)-Pattern. With this pattern, we add more tests until
+            Triangulate-pattern. With this pattern, we add more tests until
             returning hard coded answers gets ridiculous and the real implementation gets more obvious.
           </p>
           <h4 id="comment-02_59">02:59</h4>
           <p>
-            The macro cond is similar to a switch statement in in other languages. Depending on the variable $char, it
+            The macro <code>cond</code> is similar to a switch statement in in other languages. Depending on the
+            variable <code>$char</code>, it
             returns different hard-coded vectors. There are now three tests and a structure is emerging. That is why we
-            continue with the second part of the “Fake-It” Pattern and refactor the hard coded pard in small steps
+            continue with the second part of the "Fake-It" Pattern and refactor the hard coded pard in small steps
             towards the real implementation.
           </p>
           <h4 id="comment-03_08">03:08</h4>
           <p>
-            We replace the hard-coded vector ["__a__" "_b_b_" "c___c" "_b_b_" "__a__"] with the result of (into ["__a__"
-            "_b_b_" "c___c" "_b_b_" "__a__"]). Since into called with only one argument returns that same argument, this
-            change qualifies as a refactoring, because the internal structure of diamond has been changed but the
-            visible result is the same.
+            We replace the hard-coded vector <code>["__a__" "_b_b_" "c___c" "_b_b_" "__a__"]</code> with the result of
+            <code>(into ["__a__""_b_b_" "c___c" "_b_b_" "__a__"])</code>. Since <a
+              href="https://clojuredocs.org/clojure.core/into"><code>into</code></a>
+            called with only one argument returns that same argument, this change qualifies as a refactoring, because
+            the internal structure of diamond has been changed but the visible result is the same.
           </p>
           <h4 id="comment-03_15">03:15</h4>
           <p>
-            into can also be called with two collections as arguments. In that case, into returns the first collection
+            <code>into</code> can also be called with two collections as arguments. In that case, into returns the first
+            collection
             with all elements of the second collection included. We take the next tiny step and call into with the same
             vector and an empty vector. Unsurprisingly, this does also not change the result, but is a little bit closer
             to the real implementation.
           </p>
           <h4 id="comment-03_23">03:23</h4>
           <p>
-            Here, we split the first vector in two parts and call into with them. We are still in the green state, but
+            Here, we split the first vector in two parts and call <code>into</code> with them. We are still in the green
+            state, but
             now we can see a possibility to reduce the problem. The second vector can be derived from the first vector
             if we remove the first vector’s last element and reverse it afterwards.
           </p>
           <h4 id="comment-03_38">03:38</h4>
           <p>
             Both vectors are still independent from each other, but we already remove the last element of the second
-            vector without breaking any tests by adding a neutral element at the end. Except for the fact that it gets
-            removed, this element can be ignored (hence the name).
+            vector via <a href="https://clojuredocs.org/clojure.core/pop"><code>pop</code></a> without breaking any
+            tests by adding a neutral element at the end. Except for the fact that it gets removed, this element can be
+            ignored (hence the name).
           </p>
           <h4 id="comment-03_54">03:54</h4>
           <p>
             At this point, to introduce the reversing of the second vector in a non-breaking way, we need to switch the
-            first and the second element of the second vector before surrounding it with the reverse function.
+            first and the second element of the second vector before surrounding it with the <a
+              href="https://clojuredocs.org/clojure.core/reverse"><code>reverse</code></a> function.
           </p>
           <h4 id="comment-04_25">04:25</h4>
           <p>
-            With the let macro we are able to define local variables. We call it $pyramid, because the shape of the
+            With the <a href="https://clojuredocs.org/clojure.core/let"><code>let</code></a> macro we are able to define
+            local variables. We call it <code>$pyramid</code>, because the shape of the
             vector we assign to the variable looks like a pyramid. At first, we just define the variable without using
-            it anywhere. With all this small steps we can be pretty sure to stay on the “green-path”.
+            it anywhere. With all this small steps we can be pretty sure to stay on the "green-path".
           </p>
           <h4 id="comment-04_32">04:32</h4>
           <p>
@@ -420,49 +442,68 @@
           </p>
           <h4 id="comment-04_48">04:48</h4>
           <p>
-            Here we paste a prepared todo function into the project. The todo function can be called with arbitrary
-            arguments (marked by the & sign), which can be accessed within the function body as a list called args. The
-            todo function will always return the last argument.
+            Here we paste a prepared <code>todo</code> function into the project. The <code>todo</code> function can be
+            called with arbitrary
+            arguments (marked by the <code>&</code> sign), which can be accessed within the function body as a list
+            called <code>args</code>. The
+            <code>todo</code> function will always return the last argument.
           </p>
           <h4 id="comment-04_58">04:58</h4>
           <p>
-            We delegate the responsibility of the subproblem to construct a pyramid to a function called pyramid, that
-            does not exist yet, but that we would like to have. We wrap it within the todo function, where we state what
+            We delegate the responsibility of the subproblem to construct a pyramid to a function called
+            <code>pyramid</code>, that
+            does not exist yet, but that we would like to have. We wrap it within the <code>todo</code> function, where
+            we state what
             the pyramid function would return. Since we are not sure yet with which arguments I should call this new
-            function, we just call it here with the single argument :todo. This name signals to us, that we have come
+            function, we just call it here with the single argument <code>:todo</code>. This name signals to us, that we
+            have come
             back here later and make a decision. We can be sure, that writing tests for pyramid first will guide us to
             come up with a good API for that function.
           </p>
           <h4 id="comment-05_59">05:59</h4>
           <p>
-            The St. Pauli school of TDD defines a recursive approach. The pyramid function is now the new SUT and we
-            start again with a most basic API-test. We deliberately chose a different test input than in the diamond
-            context to not overfit the design of the pyramid function of its usage in the diamond context. We decide
-            that the pyramid function should have a start and an end parameter. The top of the resulting pyramid should
-            be the defined by the start argument and the base of the pyramid by the end argument. The height and width
-            of the pyramid can then be calculated by the distance between the start and end argument. Since the pyramid
+            The St. Pauli school of TDD defines a recursive approach. The <code>pyramid</code> function is now the new
+            SUT and we
+            start again with a most basic API-test. We deliberately chose a different test input than in the
+            <code>diamond</code>
+            context to not overfit the design of the <code>pyramid</code> function of its usage in the
+            <code>diamond</code> context. We decide
+            that the <code>pyramid</code> function should have a start and an end parameter. The top of the resulting
+            pyramid should
+            be the defined by the <code>start</code> argument and the base of the pyramid by the <code>end</code>
+            argument. The height and width
+            of the pyramid can then be calculated by the distance between the <code>start</code> and <code>end</code>
+            argument. Since the <code>pyramid</code>
             function does not yet exist, we are now in the red state.
           </p>
           <h4 id="comment-06_10">06:10</h4>
           <p>
-            Similar to the diamond function, we only implement the function signature without returning anything to get
+            Similar to the <code>diamond</code> function, we only implement the function signature without returning
+            anything to get
             clear feedback what the test is expecting and what is still missing. Then we continue with the triangulate
-            pattern to get back in the green state and learn more about the behaviour of the pyramid function.
+            pattern to get back in the green state and learn more about the behaviour of the <code>pyramid</code>
+            function.
           </p>
           <h4 id="comment-07_45">07:45</h4>
           <p>
-            Again, three test are sufficient to notice a pattern. If the distance between the start and the end argument
-            increases by one, one more argument is appended to the vector and all existing arguments are surrounded by
+            Again, three test are sufficient to notice a pattern. If the distance between the <code>start</code> and the
+            <code>end</code> argument increases by one, one more argument is appended to the vector and all existing
+            arguments are surrounded by
             one more underscore character. For example, given a pyramid with three lines, the top line has two
             underscores at the front and two at the back, the middle line has one underscore at the front and one at the
             back and the bottom line has no underscores at the front or at the back. If we start constructing the
             pyramid with the top line and surround each line of the pyramid with underscores when we add another line to
             the pyramid, we create this distinguished shape. How can we iteratively construct the pyramid then? First we
-            need to know, how to append an element to a vector in Clojure. This is accomplished with conj: (conj [] 1)
-            results in [1]. To add multiple lines to a vector we can use the reduce function: The result of (reduce + 0
-            [1 2 3]) is 6 and the result of (reduce conj [] [1 2 3]) is [1 2 3]). That means, exchanging the vector
-            [“__x__” “_y_y_” “z___z”] with (reduce conj [][“__x__” “_y_y_” “z___z”]) is getting us closer to the real
-            iterative construction of the pyramid without changing the behaviour of the pyramid function. In this way,
+            need to know, how to append an element to a vector in Clojure. This is accomplished with <a
+              href="https://clojuredocs.org/clojure.core/conj"><code>conj</code></a>:
+            <code>(conj [] 1)</code> results in <code>[1]</code>. To add multiple lines to a vector we can use the <a
+              href="https://clojuredocs.org/clojure.core/reduce"><code>reduce</code></a>
+            function: The result of <code>(reduce + 0 [1 2 3])</code> is <code>6</code> and the result of
+            <code>(reduce conj [] [1 2 3])</code> is <code>[1 2 3])</code>.
+            That means, exchanging the vector <code>["__x__" "_y_y_" "z___z"]</code> with
+            <code>(reduce conj []["__x__" "_y_y_" "z___z"])</code> is getting us closer to the real
+            iterative construction of the pyramid without changing the behaviour of the <code>pyramid</code> function.
+            In this way,
             we are both making progress and stay in the green state.
           </p>
           <h4 id="comment-08_25">08:25</h4>
@@ -474,8 +515,8 @@
           <h4 id="comment-08_31">08:31</h4>
           <p>
             In line 18, we map over each line in pyramid and call the identity function, which returns exactly the
-            argument that it was called with: (mapv identity [1 2 3]) returns [1 2 3] and (mapv identity [“a” “b”])
-            returns [“a” “b”]) We use the function mapv instead of the map function, because a pyramid is a vector and
+            argument that it was called with: (mapv identity [1 2 3]) returns [1 2 3] and (mapv identity ["a" "b"])
+            returns ["a" "b"]) We use the function mapv instead of the map function, because a pyramid is a vector and
             mapv returns a vector (map returns a sequence).
           </p>
           <h4 id="comment-08_42">08:42</h4>
@@ -487,7 +528,7 @@
           <h4 id="comment-08_53">08:53</h4>
           <p>
             The str function converts any value to a string. We are only mapping over stings, so the strings stay the
-            same. To illustrate: (mapv str [“a” “b”]) returns [“a” “b”] and (mapv str [1 2 3]) returns [“1” “2” “3”].
+            same. To illustrate: (mapv str ["a" "b"]) returns ["a" "b"] and (mapv str [1 2 3]) returns ["1" "2" "3"].
           </p>
           <h4 id="comment-09_06">09:06</h4>
           <p>
@@ -515,8 +556,8 @@
           <h4 id="comment-10_41">10:41</h4>
           <p>
             After writing down how to use the middle-line function, it gets obvious that the API of middle-line is
-            flawed. If (map middle-line [\x \y \z]) should result in [“x” “y_y” “z___z”], then that would also mean that
-            (middle-line \x) should result in “x”, while (middle-line \y) should result in “y_y”. Given only one
+            flawed. If (map middle-line [\x \y \z]) should result in ["x" "y_y" "z___z"], then that would also mean that
+            (middle-line \x) should result in "x", while (middle-line \y) should result in "y_y". Given only one
             character as an argument, how should middle-line decide, how many underscore it should return? We also have
             to pass the information, which character is supposed to be the first character of the alphabet, which is the
             second character and so on. That is why we change the api of middle-line to pass it the character as well as
@@ -641,7 +682,7 @@
             but with the $char parameter instead. Since our surround function can only surround values with underscores,
             we enhance it so that it can surround a value with arbitrary values. We do not write a test for that
             enhancement because we feel confident that we can simply write the correct implementation in short time.
-            This approach is called “Obvious Implementation”. As a rule of thumb, we only use this pattern when writing
+            This approach is called "Obvious Implementation". As a rule of thumb, we only use this pattern when writing
             the real implementation is faster than an average TDD cycle.
           </p>
           <h4 id="comment-19_10">19:10</h4>
@@ -652,7 +693,7 @@
             2, one underscore is surrounded by underscores once and the input character. If the index is 3, one
             underscore is surrounded by underscores twice and the input character. The else-case describes to this point
             only the behaviour when index is 2. That means, if we surround an underscore with underscores once, we get
-            the same result as the hard-coded “___” string.
+            the same result as the hard-coded "___" string.
           </p>
           <h4 id="comment-19_18">19:18</h4>
           <p>
@@ -661,7 +702,7 @@
             and call it with the collection and the index of 0: (nth [3 4 5] 0) return 3. iterate takes a mapping
             function and an initial value and returns an infinite sequence that starts with the initial value and whose
             consecutive values are the mapping function applied to the previous element of the sequence: (first (iterate
-            inc 0)) returns 0 and (nth (iterate inc 50) 3) returns 53. Since (first (iterate surround “_")) returns “_”,
+            inc 0)) returns 0 and (nth (iterate inc 50) 3) returns 53. Since (first (iterate surround "_")) returns "_",
             we can replace the hard-coded string with this expression without changing any visible behaviour.
           </p>
           <h4 id="comment-19_29">19:29</h4>
@@ -670,7 +711,7 @@
             with the input character. This is different to the next two references of the surround functions. These are
             called to generate the underscore string with variable length. We notice that we can remove the duplication
             of calling surround twice by replacing (surround (first (iterate surround "_"))) with (second (iterate
-            surround "_”)) which is equivalent to (nth (iterate surround "_") 1)
+            surround "_")) which is equivalent to (nth (iterate surround "_") 1)
           </p>
           <h4 id="comment-19_57">19:57</h4>
           <p>
@@ -679,7 +720,7 @@
           </p>
           <h4 id="comment-20_08">20:08</h4>
           <p>
-            Now it is time to remove the hard-coded “x” with the input character.
+            Now it is time to remove the hard-coded "x" with the input character.
           </p>
           <h4 id="comment-20_14">20:14</h4>
           <p>
@@ -703,7 +744,7 @@
           </p>
           <h4 id="comment-21_28">21:28</h4>
           <p>
-            Because we successfully finished the last SUT, we search for references of “todo” to check if we can resolve
+            Because we successfully finished the last SUT, we search for references of "todo" to check if we can resolve
             now the todo and delegate to the real implementation. We find two references: In line 72 we wrap the call to
             the pyramid-function with the todo-function. We cannot resolve this reference, because pyramid itself is
             also using the todo-function. Even if we forgot, that the St. Pauli TDD cycle for the pyramid-function is
@@ -718,7 +759,7 @@
           </p>
           <h4 id="comment-22_07">22:07</h4>
           <p>
-            In hindsight, this refactoring was questionable, because the parameter name “line” does not longer fit. In
+            In hindsight, this refactoring was questionable, because the parameter name "line" does not longer fit. In
             line 46 we are now calling (middle-line line). This does not make sense, because the middle-line expects to
             be called with a pair of index and character and not with a line.
           </p>

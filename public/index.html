@@ -175,7 +175,7 @@
             </div>
             <div id="append-only-test-suite-description" class="collapse" aria-labelledby="append-only-test-suite">
               <div class="card-body">
-                During development, treat your suit of tests as append-only. Do not delete or
+                During development, treat your suite of tests as append-only. Do not delete or
                 comment out a test that is formally correct, but conflicts with your current development state. If you
                 painted yourself into a corner, instead revert to a state where you can make continuous progress again.
               </div>
@@ -300,7 +300,7 @@
           the other schools:</p>
         <ul>
           <li><a href="#add-validation-test">Always add a validation test after each SUT has been finished</a></li>
-          <li><a href="#append-only-test-suite">During development, treat your suit of tests as append-only</a></li>
+          <li><a href="#append-only-test-suite">During development, treat your suite of tests as append-only</a></li>
         </ul>
       </div>
     </div>
@@ -377,7 +377,7 @@
             <a href="http://wiki.c2.com/?TriangulateToDesign">Triangulate</a>-Pattern. If we refactor the constant value
             to the
             real implementation, we would have used the Fake-it-pattern. But this would be
-            a to big step at this point. That is why we continue with the
+            a too big step at this point. That is why we continue with the
             Triangulate-pattern. With this pattern, we add more tests until
             returning hard coded answers gets ridiculous and the real implementation gets more obvious.
           </p>
@@ -454,9 +454,9 @@
             <code>pyramid</code>, that
             does not exist yet, but that we would like to have. We wrap it within the <code>todo</code> function, where
             we state what
-            the pyramid function would return. Since we are not sure yet with which arguments I should call this new
+            the pyramid function would return. Since we are not sure yet with which arguments we should call this new
             function, we just call it here with the single argument <code>:todo</code>. This name signals to us, that we
-            have come
+            have to come
             back here later and make a decision. We can be sure, that writing tests for pyramid first will guide us to
             come up with a good API for that function.
           </p>
@@ -527,7 +527,7 @@
           </p>
           <h4 id="comment-08_53">08:53</h4>
           <p>
-            The str function converts any value to a string. We are only mapping over stings, so the strings stay the
+            The str function converts any value to a string. We are only mapping over strings, so the strings stay the
             same. To illustrate: (mapv str ["a" "b"]) returns ["a" "b"] and (mapv str [1 2 3]) returns ["1" "2" "3"].
           </p>
           <h4 id="comment-09_06">09:06</h4>
@@ -559,7 +559,7 @@
             After writing down how to use the middle-line function, it gets obvious that the API of middle-line is
             flawed. If (map middle-line [\x \y \z]) should result in ["x" "y_y" "z___z"], then that would also mean that
             (middle-line \x) should result in "x", while (middle-line \y) should result in "y_y". Given only one
-            character as an argument, how should middle-line decide, how many underscore it should return? We also have
+            character as an argument, how should middle-line decide, how many underscores it should return? We also have
             to pass the information, which character is supposed to be the first character of the alphabet, which is the
             second character and so on. That is why we change the api of middle-line to pass it the character as well as
             its index within an arbitrary alphabet. We call this sequence an indexed-alphabet.
@@ -609,7 +609,7 @@
           <p>
             The next step is to replace [\x \y \z] with something, that generates a character sequence beginning with
             the start parameter, ending with the end parameter and all the necessary characters in between. In Clojure,
-            we can generate ranges of integer easily with (range start end). For example, (range 4 7) returns (4 5 6).
+            we can generate ranges of integers easily with (range start end). For example, (range 4 7) returns (4 5 6).
             But range does not work with characters, that is why we prepare to convert a range of integers to a range of
             characters. The first tiny step is to introduce the mapping by mapping over the hard-coded vector with
             identity as the mapping function. As we used this technique before, we know that this refactoring is safe
@@ -649,7 +649,7 @@
           </p>
           <h4 id="comment-15_27">15:27</h4>
           <p>
-            Only now do we complete our first St. Pauli TDD cycle by finish off with a validation test that is
+            Only now do we complete our first St. Pauli TDD cycle by finishing with a validation test that is
             structurally different to the previous test data. This is helpful to avoid overfitting to the training set
             we used to drive the implementation.
           </p>
@@ -717,7 +717,7 @@
           </p>
           <h4 id="comment-19_57">19:57</h4>
           <p>
-            We also notice, that the nth element is dependent of the index of the input character. We can replace the
+            We also notice, that the nth element is dependent on the index of the input character. We can replace the
             hard-coded 1 with decrementing the index by 1 via the built-in dec-function.
           </p>
           <h4 id="comment-20_08">20:08</h4>
@@ -756,12 +756,12 @@
           </p>
           <h4 id="comment-21_55">21:55</h4>
           <p>
-            The else-case in line 47 can now also handle all other cases so we can remove line 45 and line 46. As soon
+            Now the else-case in line 47 can also handle all other cases so we can remove line 45 and line 46. As soon
             as there is no branching anymore, we can remove the cond-macro altogether.
           </p>
           <h4 id="comment-22_07">22:07</h4>
           <p>
-            In hindsight, this refactoring was questionable, because the parameter name "line" does not longer fit. In
+            In hindsight, this refactoring was questionable, because the parameter name "line" does no longer fit. In
             line 46 we are now calling (middle-line line). This does not make sense, because the middle-line expects to
             be called with a pair of index and character and not with a line.
           </p>
@@ -778,10 +778,10 @@
             function always starts with the
             \a character but the <code>pyramid</code> function is able to generate pyramids that start with arbitrary
             characters. On
-            the other hand, this design reveals on the highest abstraction level, that the diamonds always start with
+            the other hand, this design reveals on the highest abstraction level that the diamonds always start with
             the <code>\a</code> character. If we formulated this restriction within the <code>pyramid</code> function,
             it would have been buried
-            one abstraction lever deeper in the code. One could also argue with the
+            one abstraction level deeper in the code. One could also argue with the
             <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a>:
             If
             we change the starting character of a diamond to a capital <code>A</code>, not only the
@@ -792,7 +792,7 @@
           </p>
           <h4 id="comment-23_46">23:46</h4>
           <p>
-            Our else-case can now also handle all other cases, so we can remove the cond-macro.
+            Now our else-case can also handle all other cases, so we can remove the cond-macro.
           </p>
           <h4 id="comment-24_01">24:01</h4>
           <p>
@@ -800,7 +800,7 @@
           </p>
           <h4 id="comment-24_55">24:55</h4>
           <p>
-            All tests pass. We do not need the todo-function anymore so we remove it. Congratulation, we completed the
+            All tests pass. We do not need the todo-function anymore so we remove it. Congratulations, we completed the
             Diamond-Kata!
           </p>
           <h4 id="comment-24_25">24:25</h4>

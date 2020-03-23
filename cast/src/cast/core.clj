@@ -107,7 +107,7 @@
   (let [c (dissoc @counter 0)]
     (str (move-to-statistics-place row)
          reset
-         "CYCLE-COUNT "
+         "CYCLE-COUNT: "
          red
          "red: "
          (count (filter (comp (partial not= :green) :color) (vals c)))
@@ -123,7 +123,7 @@
   (let [c (dissoc @counter 0)]
     (str (move-to-statistics-place row)
          purple
-         "AVG-CYCLE-TIME: "
+         "AVG-TDD-STATE-TIME: "
          black-bold
          (print-avg-t c)
          reset)))

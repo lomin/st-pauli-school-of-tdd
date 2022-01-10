@@ -3959,6 +3959,7 @@ input[type=button].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
+  max-height: 100%;
 }
 .navbar .container,
 .navbar .container-fluid,
